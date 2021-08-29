@@ -1,0 +1,25 @@
+{
+  "name": "dio-node-user-authentication-api",
+  "version": "1.0.0",
+  "description": "Microserviço de autenticação de usuários feito em nodejs com o intuito de contribuir com o conhecimento desta comunidade DEV incrível!",
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
+    "start": "node ./dist/index.js"
+  },
+  "author": "Renan Johannsen de Paula",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.2",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.0"
+  },
+  "dependencies": {
+    "@types/jsonwebtoken": "^8.5.5",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
