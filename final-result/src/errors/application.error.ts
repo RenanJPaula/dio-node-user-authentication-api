@@ -10,12 +10,15 @@ export const DEFAULT_APPLICATION_ERROR_CONFIG: ApplicationErrorConfig<void> = {
     messagekey: 'unexpected-error'
 };
 
-export class ApplicationError extends Error {
+export class ApplicationError<T> extends Error {
 
     constructor(
-        public config: ApplicationErrorConfig<void> = DEFAULT_APPLICATION_ERROR_CONFIG
+        public config: ApplicationErrorConfig<T>
     ) {
-        super(config.log);
+        super(config.log || DEFAULT_APPLICATION_ERROR_CONFIG.log);
+        if (!config.messagekey) {
+            config.messagekey = DEFAULT_APPLICATION_ERROR_CONFIG.messagekey;
+        }
     }
 
 }

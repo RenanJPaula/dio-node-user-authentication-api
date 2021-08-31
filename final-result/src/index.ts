@@ -10,8 +10,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/users', jwtAuthenticationMiddleware, userRoute);
 app.use('/authentication', authenticationRoute);
+app.use('/users', jwtAuthenticationMiddleware, userRoute);
 
 app.use(errorHanddlerMiddleware);
 
