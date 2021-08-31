@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import db from './database';
 import errorHanddlerMiddleware from './middlewares/error-handdles.middleware';
+import jwtAuthenticationMiddleware from './middlewares/jwt-authentication.middleware';
 import authenticationRoute from './routes/authentication.route';
 import userRoute from './routes/user.route';
 
@@ -9,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/users', userRoute);
+app.use('/users', jwtAuthenticationMiddleware, userRoute);
 app.use('/authentication', authenticationRoute);
 
 app.use(errorHanddlerMiddleware);
