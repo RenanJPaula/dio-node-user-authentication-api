@@ -1,5 +1,5 @@
 
-import { Request, Response, Router } from "express";
+import { NextFunction, Request, Response, Router } from "express";
 import { StatusCodes } from 'http-status-codes';
 import JWT from 'jsonwebtoken';
 import basicAuthMiddleware from "../middlewares/basic-authentication.middleware";
@@ -14,13 +14,17 @@ const route = Router();
 // “iat” Data de criação do token
 // “jti” O id do token
 
-route.post('/token', basicAuthMiddleware, async (req: Request, res: Response) => {
-    const token = JWT.sign({}, 'teste', {
-        audience: 'consumer-uuid',
-        subject: req.user?.uuid
-    });
-
-    res.status(StatusCodes.OK).json({ token });
+route.post('/token', basicAuthMiddleware, async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const token = JWT.sign({}, 'teste', {
+            audience: 'consumer-uuid',
+            subject: req.user?.uuid
+        });
+    
+        return res.status(StatusCodes.OK).json({ token });
+    } catch (error) {
+        next(error);
+    }
 });
 
 export default route;

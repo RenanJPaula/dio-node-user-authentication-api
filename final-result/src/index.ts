@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import db from './database';
 import errorHanddlerMiddleware from './middlewares/error-handdles.middleware';
 import authenticationRoute from './routes/authentication.route';
 import userRoute from './routes/user.route';
@@ -17,6 +18,16 @@ app.use('/', (req: Request, res: Response) => {
     res.json({ message: 'ok' });
 });
 
-app.listen(3000, () => {
+const server = app.listen(3000, () => {
     console.log('listem on 3000!');
 });
+
+process.on('SIGTERM', () => {
+    db.end(() => {
+        console.log('database connection closed!')
+    });
+    server.close(() => {
+        console.log('server on 3000 closed!');
+    });
+})
+
