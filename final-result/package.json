@@ -10,6 +10,7 @@
   "author": "Renan Johannsen de Paula",
   "license": "ISC",
   "devDependencies": {
+    "@types/config": "^0.0.39",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "^16.7.2",
@@ -19,6 +20,7 @@
     "typescript": "^4.4.0"
   },
   "dependencies": {
+    "config": "^3.3.6",
     "express": "^4.17.1",
     "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",

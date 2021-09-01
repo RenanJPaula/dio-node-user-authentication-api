@@ -1,0 +1,5 @@
+{
+    "database": {
+        "uri": "your_database_uri"
+    }
+}
