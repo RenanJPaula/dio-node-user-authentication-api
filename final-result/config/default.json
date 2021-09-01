@@ -1,5 +1,8 @@
 {
     "database": {
         "uri": "your_database_uri"
+    },
+    "authentication": {
+        "cryptKey": "my_salt"
     }
 }
