@@ -1,27 +1,28 @@
+# Microserviço de autenticação com Nodejs
 
+Este é um projeto desenvolvido durante algumas lives para dissiminação de conhecimento dentro da [DIO](https://digitalinnovation.one/), uma plataforma de cursos gratuíta que todo DEV deveria conhecer! :wink:
 
-# How Install
+Neste projeto iremos criar um **microserviço de autenticação** que poderá compor a sua caixinha de ferramentas e ser muito útil no seu dia a dia. :hammer::wrench:
 
-install nodejs
+## Composição do nosso projeto
 
-npm install -g typescript
+Neste projeto Temos alguns **Endpoints Base** que podem ser extendidos da forma mais adequada para seu contexto. 
 
-npm init
+São eles:
 
-npm install --save-dev typescript
+### Usuários
 
-npm install --save-dev @types/node
+* GET /users
+* GET /users/:uuid
+* POST /users
+* PUT /users/:uuid
+* DELETE /users/:uuid
 
-npm install --save express
+### Autenticação
 
-npm install --save-dev @types/express
+* POST /token
+* POST /token/validate
 
-npm install --save-dev ts-node-dev
+## Links úteis
 
-npm install --save-dev tsconfig-paths
-
-"scripts": {
-    "build": "tsc -p .",
-    "start": "node ./dist/index.js",
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts"
-}
+[Link](https://docs.google.com/presentation/d/1xcmu1IRAfPiWWEB6Y93ioVhup1McR3VY/edit?usp=sharing&ouid=111532941625525152923&rtpof=true&sd=true) para os slides utilizados dutante a live.
